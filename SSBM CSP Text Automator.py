@@ -54,7 +54,14 @@ if filePaths: # Proceed only if the user selected image(s)
                 print("---Invalid text entered, " + filePaths[x].rpartition('/')[-1] + " will be skipped---")
                 continue
             startNum = input("Input starting expansion slot number: ") # Initialize the variable for the starting range of the expansion slot numbers
+            if not startNum or not startNum.isnumeric(): # Skip an image file if the startNum variable is invalid, must not be empty and must have a number
+                print("---Invalid value entered, " + filePaths[x].rpartition('/')[-1] + " will be skipped---")
+                continue
             endNum = input("Input ending expansion slot number: ") # Initialize the variable for the ending range of the expansion slot numbers
+            if not baseText or not baseText.isnumeric(): # Skip an image file if the endNum variable is invalid, must not be empty and must have a number
+                print("---Invalid value entered, " + filePaths[x].rpartition('/')[-1] + " will be skipped---")
+                continue
+
         except ValueError: # Skip the input image file if the baseText variable is invalid
             continue
 
